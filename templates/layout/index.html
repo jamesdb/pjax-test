@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>{% block title %}Default Title{% endblock %}</title>
+    </head>
+    <body>
+        <nav>
+            <li><a href="/">Home</a></li>
+            <li><a href="/test">Page</a></li>
+            <li><a href="/another">Another Page</a></li>
+        </nav>
+        <div id="pjax-container">
+            {% block content %}{% endblock %}
+        </div>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.pjax/1.9.6/jquery.pjax.min.js"></script>
+        <script>
+            $(document).pjax('a', '#pjax-container', {fragment: '#pjax-container'});
+        </script>
+    </body>
+</html>
